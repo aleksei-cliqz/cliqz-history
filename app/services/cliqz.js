@@ -56,6 +56,8 @@ export default Ember.Service.extend({
     chrome.runtime.onMessage.addListener(message => {
       if(message.action === "updateHistoryUrls" && message.message) {
         this.get('historySync').updateHistoryUrls(message.message.urls);
+      } else if (message.action === 'test') {
+        console.log('It works!');
       }
 
       if (message.response) {
